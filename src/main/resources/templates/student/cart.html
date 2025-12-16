@@ -529,15 +529,9 @@
                                 Judul Kursus
                             </a>
                         </h3>
-                        <p class="item-lecturer" th:text="'Oleh ' + ${item.course.lecturer.fullName}">Oleh John Doe</p>
+                        <p class="item-lecturer" th:text="'Oleh ' + ${item.course.lecturer.firstName+' '+item.course.lecturer.lastName}">Oleh John Doe</p>
                         
                         <div class="item-meta">
-                            <div class="item-rating">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                                </svg>
-                                <span th:text="${item.course.averageRating != null} ? ${#numbers.formatDecimal(item.course.averageRating, 1, 1)} : '0.0'">4.8</span>
-                            </div>
                             <span class="item-meta-item">
                                 <span th:text="${item.course.totalLessons} + ' materi'">24 materi</span>
                             </span>
@@ -549,17 +543,13 @@
                     
                     <div class="item-actions">
                         <div class="item-price">
-                            <div class="price-current" th:text="'Rp ' + ${#numbers.formatInteger(item.course.discountPrice != null ? item.course.discountPrice : item.course.price, 3, 'POINT')}">
+                            <div class="price-current" th:text="'Rp ' + ${#numbers.formatInteger(item.course.price, 3, 'POINT')}">
                                 Rp 199.000
-                            </div>
-                            <div class="price-original" th:if="${item.course.discountPrice != null}" 
-                                 th:text="'Rp ' + ${#numbers.formatInteger(item.course.price, 3, 'POINT')}">
-                                Rp 499.000
                             </div>
                         </div>
                         
                         <form th:action="@{/cart/remove}" method="post">
-                            <input type="hidden" name="courseId" th:value="${item.course.courseId}">
+                            <input type="hidden" name="itemId" th:value="${item.id}">
                             <button type="submit" class="btn-remove">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="3 6 5 6 21 6"/>
@@ -576,20 +566,7 @@
             
             <!-- Cart Summary -->
             <div class="cart-summary">
-                <h2 class="summary-title">Ringkasan Pesanan</h2>
-                
-                <div class="summary-row">
-                    <span class="summary-label">Subtotal</span>
-                    <span class="summary-value" th:text="'Rp ' + ${#numbers.formatInteger(subtotal, 3, 'POINT')}">Rp 998.000</span>
-                </div>
-                
-                <div class="summary-row" th:if="${discount != null and discount > 0}">
-                    <span class="summary-label">Diskon</span>
-                    <span class="summary-value summary-discount" th:text="'-Rp ' + ${#numbers.formatInteger(discount, 3, 'POINT')}">-Rp 300.000</span>
-                </div>
-                
-                <div class="summary-divider"></div>
-                
+                <h2 class="summary-title">Ringkasan Pesanan</h2>      
                 <div class="summary-total">
                     <span class="summary-total-label">Total</span>
                     <span class="summary-total-value" th:text="'Rp ' + ${#numbers.formatInteger(total, 3, 'POINT')}">Rp 698.000</span>
@@ -603,17 +580,7 @@
                         </svg>
                         Lanjut ke Pembayaran
                     </a>
-                </div>
-                
-                <!-- Coupon -->
-                <div class="coupon-section">
-                    <label class="coupon-label">Punya kode kupon?</label>
-                    <form th:action="@{/cart/apply-coupon}" method="post" class="coupon-input-group">
-                        <input type="text" name="couponCode" class="coupon-input" placeholder="Masukkan kode kupon">
-                        <button type="submit" class="btn-apply">Terapkan</button>
-                    </form>
-                </div>
-                
+                </div>                
                 <!-- Security Badge -->
                 <div class="security-badge">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

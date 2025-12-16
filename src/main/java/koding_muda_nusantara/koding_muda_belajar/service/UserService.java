@@ -8,6 +8,7 @@ package koding_muda_nusantara.koding_muda_belajar.service;
  *
  * @author hanif
  */
+import jakarta.servlet.http.HttpSession;
 import koding_muda_nusantara.koding_muda_belajar.dto.LoginRequest;
 import koding_muda_nusantara.koding_muda_belajar.dto.RegisterRequest;
 import koding_muda_nusantara.koding_muda_belajar.model.*;
@@ -117,6 +118,14 @@ public class UserService {
             return "Student";
         }
         return "Unknown";
+    }
+    
+    public Student getStudentFromSession(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user instanceof Student student) {
+            return student;
+        }
+        return null;
     }
     
     public int getCartCount(User user){
