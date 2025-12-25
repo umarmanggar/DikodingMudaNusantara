@@ -24,6 +24,9 @@ public class StudentLearnController {
 
     @Autowired
     private ProgressService progressService;
+    
+    @Autowired
+    private QuizService quizService;
 
     // ==================== HALAMAN BELAJAR ====================
 
@@ -121,6 +124,12 @@ public class StudentLearnController {
         Lesson prevLesson = getPreviousLesson(course, lesson);
         Lesson nextLesson = getNextLesson(course, lesson);
 
+        // Dapatkan quiz jika contentType adalah quiz
+        Quiz quiz = null;
+        if ("quiz".equalsIgnoreCase(lesson.getContentType().name())) {
+            quiz = quizService.getQuizByLessonId(lessonId);
+        }
+
         // Set model attributes
         model.addAttribute("course", course);
         model.addAttribute("lesson", lesson);
@@ -131,6 +140,7 @@ public class StudentLearnController {
         model.addAttribute("prevLesson", prevLesson);
         model.addAttribute("nextLesson", nextLesson);
         model.addAttribute("user", student);
+        model.addAttribute("quiz", quiz);
 
         return "student/learn";
     }

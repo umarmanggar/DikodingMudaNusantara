@@ -1014,6 +1014,35 @@
                 <div th:replace="~{student/fragments/learn-pdf :: pdf-content}"></div>
             </div>
             
+            <!-- Quiz Content -->
+            <div class="content-area" th:if="${lesson.contentType.name() == 'quiz'}" style="background: var(--color-bg);">
+                <div style="max-width: 600px; margin: 0 auto; padding: 4rem 2rem; text-align: center;">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #8B1538, #D4A84B); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-weight: 700; margin-bottom: 0.75rem;">Quiz: <span th:text="${lesson.title}">Quiz Title</span></h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 2rem;" th:text="${lesson.description != null ? lesson.description : 'Uji pemahaman Anda dengan mengerjakan quiz ini.'}">
+                        Uji pemahaman Anda dengan mengerjakan quiz ini.
+                    </p>
+                    <a th:if="${quiz != null}" th:href="@{/quiz/{id}(id=${quiz.quizId})}" 
+                       style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: #8B1538; color: white; border-radius: 10px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.2s ease;"
+                       onmouseover="this.style.background='#6d102c'" 
+                       onmouseout="this.style.background='#8B1538'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                        Mulai Quiz
+                    </a>
+                    <div th:unless="${quiz != null}" style="padding: 1rem; background: #fff3cd; border-radius: 10px; color: #856404;">
+                        Quiz belum tersedia untuk materi ini.
+                    </div>
+                </div>
+            </div>
+            
             <!-- Info Panel -->
             <div class="info-panel">
                 <!-- Header -->
