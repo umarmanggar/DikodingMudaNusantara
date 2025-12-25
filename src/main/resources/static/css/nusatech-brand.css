@@ -10,792 +10,466 @@
  */
 
 :root {
-    /* ============================================
-       PRIMARY BRAND COLORS
-       ============================================ */
+    /* Brand Colors */
+    --primary: #8B1538;
+    --primary-hover: #6d102c;
+    --secondary: #D4A84B;
+    --secondary-hover: #c49b2f;
     
-    /* Primary - Maroon */
-    --nt-primary: #8B1538;
-    --nt-primary-hover: #6d102c;
-    --nt-primary-light: #f8e8ec;
-    --nt-primary-dark: #5a0e24;
+    /* Background */
+    --bg-light: #fdf8f3;
+    --bg-white: #ffffff;
+    --bg-dark: #1a1a2e;
     
-    /* Secondary - Gold */
-    --nt-secondary: #D4A84B;
-    --nt-secondary-hover: #c49b2f;
-    --nt-secondary-light: #faf3e3;
-    --nt-secondary-dark: #b08a3a;
+    /* Text */
+    --text-dark: #2d2d2d;
+    --text-muted: #6c757d;
+    --text-light: #ffffff;
     
-    /* ============================================
-       BACKGROUND COLORS
-       ============================================ */
-    --nt-bg-light: #fdf8f3;
-    --nt-bg-white: #ffffff;
-    --nt-bg-subtle: #f9f6f2;
-    --nt-bg-muted: #f3f0eb;
+    /* Status Colors */
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
     
-    /* ============================================
-       TEXT COLORS
-       ============================================ */
-    --nt-text-dark: #2d2d2d;
-    --nt-text-body: #333333;
-    --nt-text-muted: #6c757d;
-    --nt-text-light: #9ca3af;
-    --nt-text-white: #ffffff;
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
     
-    /* ============================================
-       BORDER & SHADOW
-       ============================================ */
-    --nt-border: #e5e1dc;
-    --nt-border-light: #f0ede9;
-    --nt-shadow-sm: 0 1px 2px 0 rgb(139 21 56 / 0.05);
-    --nt-shadow-md: 0 4px 6px -1px rgb(139 21 56 / 0.07), 0 2px 4px -2px rgb(139 21 56 / 0.05);
-    --nt-shadow-lg: 0 10px 15px -3px rgb(139 21 56 / 0.08), 0 4px 6px -4px rgb(139 21 56 / 0.05);
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
     
-    /* ============================================
-       STATUS COLORS
-       ============================================ */
-    --nt-success: #059669;
-    --nt-success-light: #d1fae5;
-    --nt-warning: #d97706;
-    --nt-warning-light: #fef3c7;
-    --nt-error: #dc2626;
-    --nt-error-light: #fee2e2;
-    --nt-info: #0284c7;
-    --nt-info-light: #e0f2fe;
-    
-    /* ============================================
-       BORDER RADIUS
-       ============================================ */
-    --nt-radius-sm: 6px;
-    --nt-radius-md: 10px;
-    --nt-radius-lg: 16px;
-    --nt-radius-xl: 24px;
-    --nt-radius-full: 9999px;
-    
-    /* ============================================
-       TRANSITIONS
-       ============================================ */
-    --nt-transition: all 0.2s ease;
-    --nt-transition-fast: all 0.15s ease;
-    --nt-transition-slow: all 0.3s ease;
-    
-    /* ============================================
-       TYPOGRAPHY
-       ============================================ */
-    --nt-font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --nt-font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Additional useful variables */
+    --primary-light: #f8e8ec;
+    --secondary-light: #faf3e3;
+    --border-color: #e5e1dc;
+    --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --transition: all 0.2s ease;
 }
 
 /* ============================================
    BASE STYLES
    ============================================ */
 
-.nt-body {
-    font-family: var(--nt-font-primary);
-    color: var(--nt-text-body);
-    background-color: var(--nt-bg-white);
+body.nusatech {
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    background-color: var(--bg-white);
     line-height: 1.6;
-    font-size: 15px;
     -webkit-font-smoothing: antialiased;
-}
-
-.nt-bg-light {
-    background-color: var(--nt-bg-light) !important;
-}
-
-.nt-bg-primary {
-    background-color: var(--nt-primary) !important;
-}
-
-.nt-bg-secondary {
-    background-color: var(--nt-secondary) !important;
-}
-
-/* ============================================
-   TEXT UTILITIES
-   ============================================ */
-
-.nt-text-primary {
-    color: var(--nt-primary) !important;
-}
-
-.nt-text-secondary {
-    color: var(--nt-secondary) !important;
-}
-
-.nt-text-dark {
-    color: var(--nt-text-dark) !important;
-}
-
-.nt-text-muted {
-    color: var(--nt-text-muted) !important;
-}
-
-.nt-text-white {
-    color: var(--nt-text-white) !important;
 }
 
 /* ============================================
    BUTTONS
    ============================================ */
 
-.nt-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--nt-radius-sm);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    font-family: var(--nt-font-primary);
-    cursor: pointer;
-    transition: var(--nt-transition);
-    text-decoration: none;
-    border: none;
-    line-height: 1.4;
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--text-light) !important;
 }
 
-.nt-btn-primary {
-    background: var(--nt-primary);
-    color: var(--nt-text-white);
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    color: var(--text-light) !important;
 }
 
-.nt-btn-primary:hover {
-    background: var(--nt-primary-hover);
-    color: var(--nt-text-white);
-    transform: translateY(-1px);
+.btn-secondary {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+    color: var(--text-dark) !important;
 }
 
-.nt-btn-primary:active {
-    transform: translateY(0);
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--secondary-hover) !important;
+    border-color: var(--secondary-hover) !important;
+    color: var(--text-dark) !important;
 }
 
-.nt-btn-secondary {
-    background: var(--nt-secondary);
-    color: var(--nt-text-dark);
+.btn-outline-primary {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
 }
 
-.nt-btn-secondary:hover {
-    background: var(--nt-secondary-hover);
-    color: var(--nt-text-dark);
-    transform: translateY(-1px);
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--text-light) !important;
 }
 
-.nt-btn-outline-primary {
-    background: transparent;
-    color: var(--nt-primary);
-    border: 2px solid var(--nt-primary);
+.btn-outline-secondary {
+    color: var(--secondary-hover) !important;
+    border-color: var(--secondary) !important;
+    background-color: transparent !important;
 }
 
-.nt-btn-outline-primary:hover {
-    background: var(--nt-primary);
-    color: var(--nt-text-white);
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+    color: var(--text-dark) !important;
 }
 
-.nt-btn-outline-secondary {
-    background: transparent;
-    color: var(--nt-secondary-dark);
-    border: 2px solid var(--nt-secondary);
+/* ============================================
+   TEXT UTILITIES
+   ============================================ */
+
+.text-primary {
+    color: var(--primary) !important;
 }
 
-.nt-btn-outline-secondary:hover {
-    background: var(--nt-secondary);
-    color: var(--nt-text-dark);
+.text-secondary {
+    color: var(--secondary) !important;
 }
 
-.nt-btn-lg {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+.text-dark {
+    color: var(--text-dark) !important;
 }
 
-.nt-btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* ============================================
+   BACKGROUND UTILITIES
+   ============================================ */
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+.bg-light {
+    background-color: var(--bg-light) !important;
+}
+
+.bg-dark {
+    background-color: var(--bg-dark) !important;
 }
 
 /* ============================================
    LINKS
    ============================================ */
 
-.nt-link {
-    color: var(--nt-primary);
+a.link-primary {
+    color: var(--primary);
     text-decoration: none;
-    transition: var(--nt-transition);
+    transition: var(--transition);
 }
 
-.nt-link:hover {
-    color: var(--nt-primary-hover);
-    text-decoration: underline;
+a.link-primary:hover {
+    color: var(--primary-hover);
 }
 
-.nt-link-secondary {
-    color: var(--nt-secondary-dark);
-}
-
-.nt-link-secondary:hover {
-    color: var(--nt-secondary-hover);
-}
-
-/* ============================================
-   NAVBAR / BRAND
-   ============================================ */
-
-.nt-navbar {
-    background: var(--nt-bg-white);
-    border-bottom: 1px solid var(--nt-border);
-    padding: 0.875rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nt-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--nt-text-dark);
+a.link-secondary {
+    color: var(--secondary-hover);
     text-decoration: none;
+    transition: var(--transition);
 }
 
-.nt-brand-logo {
-    height: 40px;
-    width: auto;
-}
-
-.nt-brand-text {
-    color: var(--nt-primary);
-}
-
-.nt-brand-text span {
-    color: var(--nt-secondary);
-}
-
-.nt-nav-link {
-    color: var(--nt-text-muted);
-    font-weight: 500;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    border-radius: var(--nt-radius-sm);
-    text-decoration: none;
-    transition: var(--nt-transition);
-}
-
-.nt-nav-link:hover {
-    color: var(--nt-text-dark);
-    background: var(--nt-bg-light);
-}
-
-.nt-nav-link.active {
-    color: var(--nt-primary);
-}
-
-/* ============================================
-   CARDS
-   ============================================ */
-
-.nt-card {
-    background: var(--nt-bg-white);
-    border: 1px solid var(--nt-border);
-    border-radius: var(--nt-radius-md);
-    overflow: hidden;
-    transition: var(--nt-transition);
-}
-
-.nt-card:hover {
-    box-shadow: var(--nt-shadow-md);
-    border-color: transparent;
-    transform: translateY(-2px);
-}
-
-.nt-card-header {
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid var(--nt-border);
-    background: var(--nt-bg-light);
-}
-
-.nt-card-body {
-    padding: 1.5rem;
-}
-
-.nt-card-footer {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid var(--nt-border);
-    background: var(--nt-bg-subtle);
-}
-
-/* ============================================
-   BADGES
-   ============================================ */
-
-.nt-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--nt-radius-full);
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.nt-badge-primary {
-    background: var(--nt-primary-light);
-    color: var(--nt-primary);
-}
-
-.nt-badge-secondary {
-    background: var(--nt-secondary-light);
-    color: var(--nt-secondary-dark);
-}
-
-.nt-badge-success {
-    background: var(--nt-success-light);
-    color: var(--nt-success);
-}
-
-.nt-badge-warning {
-    background: var(--nt-warning-light);
-    color: var(--nt-warning);
-}
-
-.nt-badge-error {
-    background: var(--nt-error-light);
-    color: var(--nt-error);
+a.link-secondary:hover {
+    color: var(--secondary);
 }
 
 /* ============================================
    FORM ELEMENTS
    ============================================ */
 
-.nt-form-label {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--nt-text-dark);
-    margin-bottom: 0.5rem;
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(139, 21, 56, 0.15);
 }
 
-.nt-form-input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--nt-border);
-    border-radius: var(--nt-radius-sm);
-    font-size: 0.9375rem;
-    font-family: var(--nt-font-primary);
-    background: var(--nt-bg-white);
-    transition: var(--nt-transition);
-}
-
-.nt-form-input:focus {
-    outline: none;
-    border-color: var(--nt-primary);
-    box-shadow: 0 0 0 3px var(--nt-primary-light);
-}
-
-.nt-form-input::placeholder {
-    color: var(--nt-text-light);
+.form-check-input:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 /* ============================================
-   HERO SECTION
+   NAVBAR
    ============================================ */
 
-.nt-hero {
-    background: linear-gradient(135deg, var(--nt-primary) 0%, var(--nt-primary-dark) 100%);
-    padding: 5rem 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.nt-hero-light {
-    background: linear-gradient(180deg, var(--nt-bg-light) 0%, var(--nt-bg-white) 100%);
-}
-
-.nt-hero-title {
-    font-size: 3rem;
+.navbar-brand-nusatech {
     font-weight: 700;
-    line-height: 1.15;
-    color: var(--nt-text-white);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-}
-
-.nt-hero-light .nt-hero-title {
-    color: var(--nt-text-dark);
-}
-
-.nt-hero-title span {
-    color: var(--nt-secondary);
-}
-
-.nt-hero-subtitle {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 540px;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-}
-
-.nt-hero-light .nt-hero-subtitle {
-    color: var(--nt-text-muted);
-}
-
-/* ============================================
-   SECTION HEADERS
-   ============================================ */
-
-.nt-section {
-    padding: 5rem 0;
-}
-
-.nt-section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--nt-primary);
-    margin-bottom: 0.5rem;
-}
-
-.nt-section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--nt-text-dark);
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-}
-
-.nt-section-subtitle {
-    font-size: 1rem;
-    color: var(--nt-text-muted);
-    max-width: 600px;
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
-
-.nt-footer {
-    background: var(--nt-text-dark);
-    padding: 4rem 0 2rem;
-    color: var(--nt-text-light);
-}
-
-.nt-footer-brand {
     font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--nt-text-white);
-    margin-bottom: 0.75rem;
+    color: var(--primary);
 }
 
-.nt-footer-brand span {
-    color: var(--nt-secondary);
+.navbar-brand-nusatech span {
+    color: var(--secondary);
 }
 
-.nt-footer-title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--nt-text-white);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.nav-link {
+    color: var(--text-muted);
+    transition: var(--transition);
 }
 
-.nt-footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nt-footer-links li {
-    margin-bottom: 0.625rem;
-}
-
-.nt-footer-links a {
-    font-size: 0.875rem;
-    color: var(--nt-text-light);
-    text-decoration: none;
-    transition: var(--nt-transition);
-}
-
-.nt-footer-links a:hover {
-    color: var(--nt-secondary);
-}
-
-.nt-footer-copyright {
-    font-size: 0.8rem;
-    color: var(--nt-text-light);
-    padding-top: 1.5rem;
-    margin-top: 3rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
 }
 
 /* ============================================
-   SIDEBAR (Dashboard)
+   CARDS
    ============================================ */
 
-.nt-sidebar {
-    width: 260px;
-    background: var(--nt-bg-white);
-    border-right: 1px solid var(--nt-border);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    overflow-y: auto;
-    z-index: 100;
+.card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
 }
 
-.nt-sidebar-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    border-radius: var(--nt-radius-sm);
-    color: var(--nt-text-muted);
-    font-weight: 500;
-    font-size: 0.9375rem;
-    margin-bottom: 0.25rem;
-    text-decoration: none;
-    transition: var(--nt-transition);
+.card:hover {
+    box-shadow: var(--shadow-md);
 }
 
-.nt-sidebar-nav-item:hover {
-    background: var(--nt-bg-light);
-    color: var(--nt-text-dark);
-}
-
-.nt-sidebar-nav-item.active {
-    background: var(--nt-primary-light);
-    color: var(--nt-primary);
+.card-header {
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* ============================================
-   STAT CARDS
+   BADGES
    ============================================ */
 
-.nt-stat-card {
-    background: var(--nt-bg-white);
-    border: 1px solid var(--nt-border);
-    border-radius: var(--nt-radius-md);
-    padding: 1.5rem;
+.badge-primary {
+    background-color: var(--primary);
+    color: var(--text-light);
 }
 
-.nt-stat-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--nt-radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.badge-secondary {
+    background-color: var(--secondary);
+    color: var(--text-dark);
 }
 
-.nt-stat-icon.primary {
-    background: var(--nt-primary-light);
-    color: var(--nt-primary);
+.badge-primary-light {
+    background-color: var(--primary-light);
+    color: var(--primary);
 }
 
-.nt-stat-icon.secondary {
-    background: var(--nt-secondary-light);
-    color: var(--nt-secondary-dark);
-}
-
-.nt-stat-value {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--nt-text-dark);
-    margin-bottom: 0.25rem;
-}
-
-.nt-stat-label {
-    font-size: 0.875rem;
-    color: var(--nt-text-muted);
-}
-
-/* ============================================
-   COURSE CARDS
-   ============================================ */
-
-.nt-course-card {
-    background: var(--nt-bg-white);
-    border: 1px solid var(--nt-border);
-    border-radius: var(--nt-radius-md);
-    overflow: hidden;
-    transition: var(--nt-transition);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.nt-course-card:hover {
-    box-shadow: var(--nt-shadow-md);
-    border-color: transparent;
-    transform: translateY(-2px);
-}
-
-.nt-course-thumbnail {
-    aspect-ratio: 16/9;
-    background: var(--nt-bg-subtle);
-    position: relative;
-    overflow: hidden;
-}
-
-.nt-course-badge {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    padding: 0.25rem 0.625rem;
-    background: var(--nt-bg-white);
-    border-radius: var(--nt-radius-full);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--nt-text-dark);
-}
-
-.nt-course-badge.new {
-    background: var(--nt-primary);
-    color: var(--nt-text-white);
-}
-
-.nt-course-badge.bestseller {
-    background: var(--nt-secondary);
-    color: var(--nt-text-dark);
-}
-
-.nt-course-content {
-    padding: 1.25rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.nt-course-category {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--nt-primary);
-    margin-bottom: 0.5rem;
-}
-
-.nt-course-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--nt-text-dark);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.nt-course-price {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--nt-primary);
-}
-
-.nt-course-price-original {
-    font-size: 0.875rem;
-    color: var(--nt-text-muted);
-    text-decoration: line-through;
-    margin-left: 0.5rem;
+.badge-secondary-light {
+    background-color: var(--secondary-light);
+    color: var(--secondary-hover);
 }
 
 /* ============================================
    ALERTS
    ============================================ */
 
-.nt-alert {
-    padding: 1rem 1.25rem;
-    border-radius: var(--nt-radius-sm);
-    margin-bottom: 1rem;
+.alert-primary {
+    background-color: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.alert-secondary {
+    background-color: var(--secondary-light);
+    border-color: var(--secondary);
+    color: var(--secondary-hover);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+}
+
+.hero-gradient-gold {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-hover) 100%);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer-dark {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.footer-dark a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
+}
+
+.footer-dark a:hover {
+    color: var(--secondary);
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.sidebar-nav-item {
+    color: var(--text-muted);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.75rem;
-    font-size: 0.9375rem;
 }
 
-.nt-alert-success {
-    background: var(--nt-success-light);
-    color: var(--nt-success);
-    border: 1px solid rgba(5, 150, 105, 0.2);
+.sidebar-nav-item:hover {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
 }
 
-.nt-alert-warning {
-    background: var(--nt-warning-light);
-    color: var(--nt-warning);
-    border: 1px solid rgba(217, 119, 6, 0.2);
-}
-
-.nt-alert-error {
-    background: var(--nt-error-light);
-    color: var(--nt-error);
-    border: 1px solid rgba(220, 38, 38, 0.2);
-}
-
-.nt-alert-info {
-    background: var(--nt-info-light);
-    color: var(--nt-info);
-    border: 1px solid rgba(2, 132, 199, 0.2);
+.sidebar-nav-item.active {
+    background-color: var(--primary-light);
+    color: var(--primary);
 }
 
 /* ============================================
-   RATING STARS
+   COURSE CARDS
    ============================================ */
 
-.nt-rating-stars {
-    color: var(--nt-secondary);
-    font-size: 0.875rem;
+.course-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.course-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-xl);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.course-badge.new {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+.course-badge.bestseller {
+    background-color: var(--secondary);
+    color: var(--text-dark);
+}
+
+.course-price {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.course-category {
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 /* ============================================
-   GRADIENT BACKGROUNDS
+   RATING
    ============================================ */
 
-.nt-gradient-primary {
-    background: linear-gradient(135deg, var(--nt-primary) 0%, var(--nt-primary-dark) 100%);
-}
-
-.nt-gradient-secondary {
-    background: linear-gradient(135deg, var(--nt-secondary) 0%, var(--nt-secondary-hover) 100%);
-}
-
-.nt-gradient-hero {
-    background: linear-gradient(135deg, var(--nt-primary) 0%, #6d102c 50%, var(--nt-primary-dark) 100%);
+.rating-stars {
+    color: var(--secondary);
 }
 
 /* ============================================
-   RESPONSIVE UTILITIES
+   STAT CARDS
    ============================================ */
 
-@media (max-width: 991px) {
-    .nt-hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .nt-section-title {
-        font-size: 1.75rem;
-    }
+.stat-icon-primary {
+    background-color: var(--primary-light);
+    color: var(--primary);
 }
 
-@media (max-width: 767px) {
-    .nt-hero {
+.stat-icon-secondary {
+    background-color: var(--secondary-light);
+    color: var(--secondary-hover);
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+
+.page-link {
+    color: var(--primary);
+}
+
+.page-link:hover {
+    color: var(--primary-hover);
+    background-color: var(--bg-light);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* ============================================
+   DROPDOWN
+   ============================================ */
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--bg-light);
+    color: var(--primary);
+}
+
+.dropdown-item.active {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+
+.progress-bar {
+    background-color: var(--primary);
+}
+
+.progress-bar.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+
+.border-primary { border-color: var(--primary) !important; }
+.border-secondary { border-color: var(--secondary) !important; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hero-gradient {
         padding: 3rem 0;
-    }
-    
-    .nt-hero-title {
-        font-size: 2rem;
-    }
-    
-    .nt-section {
-        padding: 3rem 0;
-    }
-    
-    .nt-section-title {
-        font-size: 1.5rem;
     }
 }
