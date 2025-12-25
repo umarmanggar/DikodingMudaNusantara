@@ -499,8 +499,8 @@
     <header class="header">
         <div class="header-container">
             <a href="/" class="logo d-flex align-items-center gap-2" style="text-decoration: none;">
-                <img th:src="@{/images/logo.png}" alt="NusaTech" height="40" onerror="this.style.display='none'">
-                <span style="color: var(--color-primary); font-weight: 700;">Nusa</span><span style="color: var(--color-secondary); font-weight: 700;">Tech</span>
+                <img th:src="@{/images/logo.png}" alt="NusaTech" height="40" 
+                     onerror="this.onerror=null; this.src='/images/logo.svg';">
             </a>
             <nav class="header-nav">
                 <a href="/courses">Kursus</a>

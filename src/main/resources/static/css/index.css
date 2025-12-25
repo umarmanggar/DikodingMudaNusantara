@@ -1,3 +1,4 @@
+/* ===== BRAND COLORS - NusaTech ===== */
 :root {
     /* NusaTech Brand Colors */
     --primary: #8B1538;
@@ -9,11 +10,21 @@
     --text-dark: #2d2d2d;
     --text-muted: #6c757d;
     
+    /* Status Colors */
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+    
     /* Legacy colors (untuk backward compatibility) */
     --primary-color: #8B1538;
     --primary-dark: #6d102c;
     --dark-bg: #1a1a2e;
 }
+
+/* Links */
+a { color: var(--primary); }
+a:hover { color: var(--primary-hover); }
 
 /* ============================================
    NusaTech Brand Utility Classes
