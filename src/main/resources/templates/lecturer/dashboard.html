@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Pengajar - Dikoding Muda Nusantara</title>
+    <title>Dashboard Pengajar - NusaTech | Dikoding Muda Nusantara</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,14 +12,16 @@
     
     <style>
         :root {
-            --color-primary: #1a56db;
-            --color-primary-dark: #1e40af;
-            --color-primary-light: #e0e7ff;
-            --color-text: #111827;
+            /* NusaTech Brand Colors */
+            --color-primary: #8B1538;
+            --color-primary-dark: #6d102c;
+            --color-primary-light: #f8e8ec;
+            --color-secondary: #D4A84B;
+            --color-text: #2d2d2d;
             --color-text-secondary: #6b7280;
             --color-text-muted: #9ca3af;
             --color-bg: #ffffff;
-            --color-bg-subtle: #f9fafb;
+            --color-bg-subtle: #fdf8f3;
             --color-border: #e5e7eb;
             --color-success: #059669;
             --color-success-light: #d1fae5;
@@ -604,7 +606,10 @@
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <a href="/" class="sidebar-logo">Dikoding<span>Muda</span></a>
+                <a href="/" class="sidebar-logo d-flex align-items-center gap-2">
+                    <img th:src="@{/images/logo.png}" alt="NusaTech" height="35" onerror="this.style.display='none'">
+                    <span style="color: var(--color-primary);">Nusa</span><span style="color: var(--color-secondary);">Tech</span>
+                </a>
             </div>
 
             <nav class="sidebar-nav">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar - Dikoding Muda Nusantara</title>
+    <title>Daftar - NusaTech | Dikoding Muda Nusantara</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,14 +12,16 @@
     
     <style>
         :root {
-            --color-primary: #1a56db;
-            --color-primary-dark: #1e40af;
-            --color-primary-light: #e0e7ff;
-            --color-text: #111827;
+            /* NusaTech Brand Colors */
+            --color-primary: #8B1538;
+            --color-primary-dark: #6d102c;
+            --color-primary-light: #f8e8ec;
+            --color-secondary: #D4A84B;
+            --color-text: #2d2d2d;
             --color-text-secondary: #6b7280;
             --color-text-muted: #9ca3af;
             --color-bg: #ffffff;
-            --color-bg-subtle: #f9fafb;
+            --color-bg-subtle: #fdf8f3;
             --color-border: #e5e7eb;
             --color-error: #dc2626;
             --color-error-light: #fef2f2;
@@ -460,7 +462,10 @@
     <div class="auth-container">
         <div class="auth-card">
             <div class="auth-header">
-                <a href="/" class="auth-logo">Dikoding<span>Muda</span></a>
+                <a href="/" class="auth-logo d-flex align-items-center justify-content-center gap-2">
+                    <img th:src="@{/images/logo.png}" alt="NusaTech" height="45" onerror="this.style.display='none'">
+                    <span style="color: var(--color-primary);">Nusa</span><span style="color: var(--color-secondary);">Tech</span>
+                </a>
                 <h1 class="auth-title">Buat Akun Baru</h1>
                 <p class="auth-subtitle">Mulai perjalanan belajar pemrogramanmu</p>
             </div>

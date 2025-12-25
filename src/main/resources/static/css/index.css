@@ -1,9 +1,94 @@
 :root {
-    --primary-color: #2dd4bf;
-    --primary-dark: #14b8a6;
-    --dark-bg: #1a1a2e;
+    /* NusaTech Brand Colors */
+    --primary: #8B1538;
+    --primary-hover: #6d102c;
+    --secondary: #D4A84B;
+    --secondary-hover: #c49b2f;
+    --bg-light: #fdf8f3;
+    --bg-dark: #1a1a2e;
+    --text-dark: #2d2d2d;
     --text-muted: #6c757d;
+    
+    /* Legacy colors (untuk backward compatibility) */
+    --primary-color: #8B1538;
+    --primary-dark: #6d102c;
+    --dark-bg: #1a1a2e;
 }
+
+/* ============================================
+   NusaTech Brand Utility Classes
+   ============================================ */
+.text-primary { color: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+.bg-light { background-color: var(--bg-light) !important; }
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    color: #fff !important;
+}
+
+.btn-secondary {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+    color: var(--text-dark) !important;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: var(--secondary-hover) !important;
+    border-color: var(--secondary-hover) !important;
+    color: var(--text-dark) !important;
+}
+
+.btn-outline-primary {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    background-color: transparent !important;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+}
+
+.btn-outline-secondary {
+    color: var(--secondary-hover) !important;
+    border-color: var(--secondary) !important;
+    background-color: transparent !important;
+}
+.btn-outline-secondary:hover, .btn-outline-secondary:focus {
+    background-color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+    color: var(--text-dark) !important;
+}
+
+/* Form focus states */
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(139, 21, 56, 0.15) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Link colors */
+a.link-primary { color: var(--primary); }
+a.link-primary:hover { color: var(--primary-hover); }
+
+/* Badge colors */
+.badge.bg-primary { background-color: var(--primary) !important; }
+.badge.bg-secondary { background-color: var(--secondary) !important; color: var(--text-dark) !important; }
+
+/* Rating stars */
+.rating-stars { color: var(--secondary); }
 
 * {
     margin: 0;
@@ -53,7 +138,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #0d9488 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
     padding: 60px 0;
     min-height: 350px;
     position: relative;
@@ -307,7 +392,7 @@ body {
 }
 
 .footer-links a:hover {
-    color: var(--primary-color);
+    color: var(--secondary);
 }
 
 .social-links a {

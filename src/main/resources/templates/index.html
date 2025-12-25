@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dikoding Muda Nusantara - Platform Belajar Pemrograman</title>
+    <title>NusaTech - Dikoding Muda Nusantara | Platform Belajar Pemrograman</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,14 +15,17 @@
     
     <style>
         :root {
-            --color-primary: #1a56db;
-            --color-primary-dark: #1e40af;
-            --color-primary-light: #e0e7ff;
-            --color-text: #111827;
+            /* NusaTech Brand Colors */
+            --color-primary: #8B1538;
+            --color-primary-dark: #6d102c;
+            --color-primary-light: #f8e8ec;
+            --color-secondary: #D4A84B;
+            --color-secondary-dark: #c49b2f;
+            --color-text: #2d2d2d;
             --color-text-secondary: #6b7280;
             --color-text-muted: #9ca3af;
             --color-bg: #ffffff;
-            --color-bg-subtle: #f9fafb;
+            --color-bg-subtle: #fdf8f3;
             --color-border: #e5e7eb;
             --color-success: #059669;
             --color-warning: #d97706;
@@ -847,8 +850,9 @@
     <nav class="navbar-main">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
-                <a href="/" class="navbar-brand">
-                    Dikoding<span>Muda</span>
+                <a href="/" class="navbar-brand d-flex align-items-center gap-2">
+                    <img th:src="@{/images/logo.png}" alt="NusaTech" height="40" onerror="this.style.display='none'">
+                    <span style="color: var(--color-primary);">Nusa</span><span style="color: var(--color-secondary);">Tech</span>
                 </a>
                 
                 <div class="d-none d-lg-flex align-items-center gap-1">
@@ -1534,7 +1538,11 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <div class="footer-brand">Dikoding<span>Muda</span></div>
+                    <div class="mb-3">
+                        <img th:src="@{/images/logo.png}" alt="NusaTech" height="45" onerror="this.style.display='none'">
+                    </div>
+                    <div class="footer-brand" style="color: var(--color-primary);">Nusa<span style="color: var(--color-secondary);">Tech</span></div>
+                    <p class="small mb-2" style="color: var(--color-secondary);">Dikoding Muda Nusantara</p>
                     <p class="footer-desc">
                         Platform pembelajaran pemrograman terbaik untuk pelajar Indonesia. 
                         Belajar coding dari dasar hingga mahir bersama mentor berpengalaman.
@@ -1579,7 +1587,7 @@
             </div>
             <div class="footer-bottom">
                 <div class="footer-copyright">
-                    2025 Dikoding Muda Nusantara. All rights reserved.
+                    © 2025 NusaTech - Dikoding Muda Nusantara. All rights reserved.
                 </div>
                 <div class="footer-social">
                     <a href="#">
