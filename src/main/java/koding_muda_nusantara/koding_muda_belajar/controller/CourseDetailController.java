@@ -14,6 +14,7 @@ import koding_muda_nusantara.koding_muda_belajar.model.User;
 import koding_muda_nusantara.koding_muda_belajar.service.CourseService;
 import koding_muda_nusantara.koding_muda_belajar.service.EnrollmentService;
 import koding_muda_nusantara.koding_muda_belajar.service.UserService;
+import koding_muda_nusantara.koding_muda_belajar.service.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,9 @@ public class CourseDetailController {
     @Autowired
     private EnrollmentService enrollmentService;
     
+    @Autowired
+    private WishlistService wishlistService;
+    
     @GetMapping("/{courseSlug}")
     public String showCourseDetail(
             @PathVariable String courseSlug,
@@ -64,6 +68,8 @@ public class CourseDetailController {
         long courseTotalEnrollments = courseService.getTotalEnrollments(course.getCourseId());
         List<Review> reviews = courseService.getAllReviews(course.getCourseId());
         List<Section> sections = courseService.getAllSections(course.getCourseId());
+        boolean isInWishlist = wishlistService.isInWishlist(student.getUserId(), course.getCourseId());
+        
         model.addAttribute("error", err);
         model.addAttribute("course", course);
         model.addAttribute("sections", sections);
@@ -74,6 +80,7 @@ public class CourseDetailController {
         model.addAttribute("courseTotalReviews", courseTotalReviews);
         model.addAttribute("courseTotalEnrollments",courseTotalEnrollments);
         model.addAttribute("reviews", reviews);
+        model.addAttribute("isInWishlist", isInWishlist);
         
         return "student/course-detail";
     }
