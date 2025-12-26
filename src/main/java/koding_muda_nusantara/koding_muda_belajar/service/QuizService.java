@@ -74,7 +74,7 @@ public class QuizService {
         
         // Cek apakah ada attempt yang belum selesai
         Optional<QuizAttempt> unfinishedAttempt = attemptRepository
-                .findFirstByStudentStudentIdAndQuizQuizIdAndCompletedAtIsNullOrderByStartedAtDesc(studentId, quizId);
+                .findFirstByStudentUserIdAndQuizQuizIdAndCompletedAtIsNullOrderByStartedAtDesc(studentId, quizId);
         if (unfinishedAttempt.isPresent()) {
             return unfinishedAttempt.get(); // Return attempt yang belum selesai
         }
@@ -171,25 +171,25 @@ public class QuizService {
     public boolean canRetake(Integer studentId, Integer quizId) {
         Quiz quiz = quizRepository.findById(quizId).orElse(null);
         if (quiz == null) return false;
-        
-        long attempts = attemptRepository.countByStudentStudentIdAndQuizQuizId(studentId, quizId);
+
+        long attempts = attemptRepository.countByStudentUserIdAndQuizQuizId(studentId, quizId);
         return attempts < quiz.getMaxAttempts();
     }
     
     public int getRemainingAttempts(Integer studentId, Integer quizId) {
         Quiz quiz = quizRepository.findById(quizId).orElse(null);
         if (quiz == null) return 0;
-        
-        long attempts = attemptRepository.countByStudentStudentIdAndQuizQuizId(studentId, quizId);
+
+        long attempts = attemptRepository.countByStudentUserIdAndQuizQuizId(studentId, quizId);
         return Math.max(0, quiz.getMaxAttempts() - (int) attempts);
     }
     
     public List<QuizAttempt> getStudentAttempts(Integer studentId, Integer quizId) {
-        return attemptRepository.findByStudentStudentIdAndQuizQuizIdOrderByStartedAtDesc(studentId, quizId);
+        return attemptRepository.findByStudentUserIdAndQuizQuizIdOrderByStartedAtDesc(studentId, quizId);
     }
     
     public QuizAttempt getBestAttempt(Integer studentId, Integer quizId) {
-        return attemptRepository.findFirstByStudentStudentIdAndQuizQuizIdOrderByScoreDesc(studentId, quizId)
+        return attemptRepository.findFirstByStudentUserIdAndQuizQuizIdOrderByScoreDesc(studentId, quizId)
                 .orElse(null);
     }
     
@@ -202,10 +202,10 @@ public class QuizService {
     }
     
     public boolean hasPassed(Integer studentId, Integer quizId) {
-        return attemptRepository.existsByStudentStudentIdAndQuizQuizIdAndIsPassedTrue(studentId, quizId);
+        return attemptRepository.existsByStudentUserIdAndQuizQuizIdAndIsPassedTrue(studentId, quizId);
     }
     
     public long getAttemptCount(Integer studentId, Integer quizId) {
-        return attemptRepository.countByStudentStudentIdAndQuizQuizId(studentId, quizId);
+        return attemptRepository.countByStudentUserIdAndQuizQuizId(studentId, quizId);
     }
 }

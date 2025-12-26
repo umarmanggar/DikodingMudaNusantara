@@ -9,17 +9,17 @@ import java.util.Optional;
 @Repository
 public interface QuizAttemptRepository extends JpaRepository<QuizAttempt, Integer> {
     
-    List<QuizAttempt> findByStudentStudentIdAndQuizQuizIdOrderByStartedAtDesc(Integer studentId, Integer quizId);
-    
-    long countByStudentStudentIdAndQuizQuizId(Integer studentId, Integer quizId);
-    
-    Optional<QuizAttempt> findFirstByStudentStudentIdAndQuizQuizIdOrderByScoreDesc(Integer studentId, Integer quizId);
-    
-    Optional<QuizAttempt> findFirstByStudentStudentIdAndQuizQuizIdAndCompletedAtIsNullOrderByStartedAtDesc(Integer studentId, Integer quizId);
-    
-    List<QuizAttempt> findByStudentStudentIdOrderByStartedAtDesc(Integer studentId);
-    
+    List<QuizAttempt> findByStudentUserIdAndQuizQuizIdOrderByStartedAtDesc(Integer studentId, Integer quizId);
+
+    long countByStudentUserIdAndQuizQuizId(Integer studentId, Integer quizId);
+
+    Optional<QuizAttempt> findFirstByStudentUserIdAndQuizQuizIdOrderByScoreDesc(Integer studentId, Integer quizId);
+
+    Optional<QuizAttempt> findFirstByStudentUserIdAndQuizQuizIdAndCompletedAtIsNullOrderByStartedAtDesc(Integer studentId, Integer quizId);
+
+    List<QuizAttempt> findByStudentUserIdOrderByStartedAtDesc(Integer studentId);
+
     List<QuizAttempt> findByQuizQuizIdOrderByScoreDesc(Integer quizId);
-    
-    boolean existsByStudentStudentIdAndQuizQuizIdAndIsPassedTrue(Integer studentId, Integer quizId);
+
+    boolean existsByStudentUserIdAndQuizQuizIdAndIsPassedTrue(Integer studentId, Integer quizId);
 }

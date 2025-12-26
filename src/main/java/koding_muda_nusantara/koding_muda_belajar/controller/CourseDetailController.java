@@ -45,6 +45,7 @@ public class CourseDetailController {
     
     @Autowired
     private ReviewService reviewService;
+    private Object isInWishlist;
     
     @GetMapping("/{courseSlug}")
     public String showCourseDetail(
