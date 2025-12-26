@@ -41,31 +41,49 @@ public class AuthController {
     
     @GetMapping("/")
     public String home(Model model,HttpSession session) {
-        User user = (User) session.getAttribute("user");
-        
-        long totalStudents = userService.getTotalStudents();
-        long totalLecturers = userService.getTotalLecturers();
-        long totalCourses = courseService.getTotalCourses();
-        
-        CategoryDTO webCat = categoryService.getCategoryWithPublishedCourseCount("web-development");
-        CategoryDTO dataCat = categoryService.getCategoryWithPublishedCourseCount("data-science");
-        CategoryDTO securityCat = categoryService.getCategoryWithPublishedCourseCount("cyber-security");
-        CategoryDTO dataBaseCat = categoryService.getCategoryWithPublishedCourseCount("database");
+        try {
+            User user = (User) session.getAttribute("user");
+            
+            long totalStudents = userService.getTotalStudents();
+            long totalLecturers = userService.getTotalLecturers();
+            long totalCourses = courseService.getTotalCourses();
+            
+            CategoryDTO webCat = categoryService.getCategoryWithPublishedCourseCount("web-development");
+            CategoryDTO dataCat = categoryService.getCategoryWithPublishedCourseCount("data-science");
+            CategoryDTO securityCat = categoryService.getCategoryWithPublishedCourseCount("cyber-security");
+            CategoryDTO dataBaseCat = categoryService.getCategoryWithPublishedCourseCount("database");
 
-        List<CourseWithStatsDTO> popularCourse = courseService.getPopularCourse();
-        List<CourseWithStatsDTO> recentCourse = courseService.getRecentCourse();
-        
-        model.addAttribute("user", user);
-        model.addAttribute("role", session.getAttribute("userRole"));
-        model.addAttribute("totalStudents",totalStudents);
-        model.addAttribute("totalCourses", totalCourses);
-        model.addAttribute("totalLecturers", totalLecturers);
-        model.addAttribute("webCat", webCat);
-        model.addAttribute("dataCat",dataCat );
-        model.addAttribute("securityCat", securityCat);
-        model.addAttribute("dataBaseCat", dataBaseCat);
-        model.addAttribute("popularCourse", popularCourse);
-        model.addAttribute("recentCourse", recentCourse);
+            List<CourseWithStatsDTO> popularCourse = courseService.getPopularCourse();
+            List<CourseWithStatsDTO> recentCourse = courseService.getRecentCourse();
+            
+            model.addAttribute("user", user);
+            model.addAttribute("role", session.getAttribute("userRole"));
+            model.addAttribute("totalStudents",totalStudents);
+            model.addAttribute("totalCourses", totalCourses);
+            model.addAttribute("totalLecturers", totalLecturers);
+            model.addAttribute("webCat", webCat);
+            model.addAttribute("dataCat",dataCat );
+            model.addAttribute("securityCat", securityCat);
+            model.addAttribute("dataBaseCat", dataBaseCat);
+            model.addAttribute("popularCourse", popularCourse != null ? popularCourse : new java.util.ArrayList<>());
+            model.addAttribute("recentCourse", recentCourse != null ? recentCourse : new java.util.ArrayList<>());
+        } catch (Exception e) {
+            // Set default values if database is empty or error occurs
+            model.addAttribute("user", null);
+            model.addAttribute("role", null);
+            model.addAttribute("totalStudents", 0L);
+            model.addAttribute("totalCourses", 0L);
+            model.addAttribute("totalLecturers", 0L);
+            model.addAttribute("webCat", null);
+            model.addAttribute("dataCat", null);
+            model.addAttribute("securityCat", null);
+            model.addAttribute("dataBaseCat", null);
+            model.addAttribute("popularCourse", new java.util.ArrayList<>());
+            model.addAttribute("recentCourse", new java.util.ArrayList<>());
+            
+            // Log error for debugging
+            System.err.println("Error loading home page data: " + e.getMessage());
+        }
         
         return "index";
     }
