@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keranjang Belanja - Dikoding Muda Nusantara</title>
+    <title>Keranjang Belanja - NusaTech | Dikoding Muda Nusantara</title>
     
     <style>
         * {
@@ -13,12 +13,14 @@
         }
         
         :root {
-            --color-primary: #0d9488;
-            --color-primary-dark: #0f766e;
+            /* NusaTech Brand Colors */
+            --color-primary: #8B1538;
+            --color-primary-dark: #6d102c;
+            --color-secondary: #D4A84B;
             --color-bg: #ffffff;
-            --color-bg-subtle: #f9fafb;
+            --color-bg-subtle: #fdf8f3;
             --color-bg-muted: #f3f4f6;
-            --color-text: #111827;
+            --color-text: #2d2d2d;
             --color-text-secondary: #6b7280;
             --color-text-muted: #9ca3af;
             --color-border: #e5e7eb;
@@ -496,10 +498,13 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <a href="/" class="logo">Dikoding Muda</a>
+            <a href="/" class="logo d-flex align-items-center gap-2" style="text-decoration: none;">
+                <img th:src="@{/images/logo.png}" alt="NusaTech" height="40" 
+                     onerror="this.onerror=null; this.src='/images/logo.svg';">
+            </a>
             <nav class="header-nav">
                 <a href="/courses">Kursus</a>
-                <a href="/my-learning">Kursus Saya</a>
+                <a href="/my-courses">Kursus Saya</a>
             </nav>
         </div>
     </header>

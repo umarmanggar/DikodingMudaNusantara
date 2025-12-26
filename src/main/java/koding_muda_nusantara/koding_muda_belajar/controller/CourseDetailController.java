@@ -15,6 +15,7 @@ import koding_muda_nusantara.koding_muda_belajar.service.CourseService;
 import koding_muda_nusantara.koding_muda_belajar.service.EnrollmentService;
 import koding_muda_nusantara.koding_muda_belajar.service.ReviewService;
 import koding_muda_nusantara.koding_muda_belajar.service.UserService;
+import koding_muda_nusantara.koding_muda_belajar.service.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -82,7 +83,7 @@ public class CourseDetailController {
         model.addAttribute("courseTotalReviews", courseTotalReviews);
         model.addAttribute("courseTotalEnrollments",courseTotalEnrollments);
         model.addAttribute("reviews", reviews);
-        model.addAttribute("hasReviewed", hasReviewed);
+        model.addAttribute("isInWishlist", isInWishlist);
         
         return "student/course-detail";
     }
