@@ -2,17 +2,23 @@ package koding_muda_nusantara.koding_muda_belajar.config;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Custom Error Controller untuk menangani error pages
  * Menangani error 403, 404, dan 500 dengan halaman custom
+ * 
+ * Note: Di Spring Boot 4.0+, ErrorController interface sudah deprecated/removed
+ * Sekarang menggunakan standard @Controller dengan @RequestMapping("/error")
  */
 @Controller
-public class CustomErrorController implements ErrorController {
+public class CustomErrorController {
 
+    /**
+     * Handler untuk semua error yang diarahkan ke /error
+     * Spring Boot secara otomatis forward error ke endpoint ini
+     */
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
