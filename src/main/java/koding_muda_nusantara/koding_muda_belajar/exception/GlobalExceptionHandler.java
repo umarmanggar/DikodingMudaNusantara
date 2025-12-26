@@ -14,9 +14,22 @@ import java.util.Map;
 
 /**
  * Global exception handler untuk REST API
+ * Hanya handle request yang expect JSON response (dari @RestController)
  */
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "koding_muda_nusantara.koding_muda_belajar.controller")
 public class GlobalExceptionHandler {
+
+    /**
+     * Cek apakah request ini untuk API (JSON) atau Web (HTML)
+     */
+    private boolean isApiRequest(WebRequest request) {
+        String accept = request.getHeader("Accept");
+        String contentType = request.getHeader("Content-Type");
+        
+        // Jika request accept JSON atau content-type JSON, anggap sebagai API request
+        return (accept != null && accept.contains("application/json")) ||
+               (contentType != null && contentType.contains("application/json"));
+    }
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleResourceNotFoundException(
@@ -85,6 +98,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiErrorResponse> handleGlobalException(
             Exception ex, WebRequest request) {
+
+        // Jika bukan API request, re-throw agar Spring Boot error handling yang handle
+        if (!isApiRequest(request)) {
+            throw new RuntimeException(ex);
+        }
 
         ApiErrorResponse error = new ApiErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),

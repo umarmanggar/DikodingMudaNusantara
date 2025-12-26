@@ -2,14 +2,17 @@ package koding_muda_nusantara.koding_muda_belajar.config;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-// Disable this controller to avoid ambiguous mapping with Spring Boot's BasicErrorController.
-// Spring Boot will render templates placed under `templates/error/*` automatically.
+/**
+ * Custom Error Controller untuk menangani error pages
+ * Spring Boot akan otomatis route error ke /error endpoint ini
+ */
+@Controller
 public class CustomErrorController {
 
-    // If you need custom error handling, either implement ErrorController properly
-    // or register an ErrorViewResolver. For now, keep this helper method unused.
+    @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         if (status != null) {
