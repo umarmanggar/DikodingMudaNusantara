@@ -13,10 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Global exception handler untuk REST API ONLY
- * Mengembalikan response dalam format JSON
- * Hanya handle controller dengan @RestController annotation
- * Untuk web pages (@Controller), lihat WebExceptionHandler
+ * Global exception handler untuk REST API
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
