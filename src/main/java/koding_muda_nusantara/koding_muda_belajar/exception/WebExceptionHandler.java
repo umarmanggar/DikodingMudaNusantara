@@ -10,8 +10,10 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 /**
  * Web Exception Handler untuk menangani exception di web pages (bukan API)
  * Menampilkan error pages yang sudah di-design
+ * 
+ * TEMPORARY DISABLED - Uncomment jika sudah yakin MySQL connection OK
  */
-@ControllerAdvice(basePackages = "koding_muda_nusantara.koding_muda_belajar.controller")
+//@ControllerAdvice(basePackages = "koding_muda_nusantara.koding_muda_belajar.controller")
 public class WebExceptionHandler {
 
     /**

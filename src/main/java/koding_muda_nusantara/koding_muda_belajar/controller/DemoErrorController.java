@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 2. 404 Custom: http://localhost:8080/demo-error/course/999999
  * 3. 500 Error: http://localhost:8080/demo-error/server-error
  * 4. 403 Forbidden: http://localhost:8080/demo-error/admin-only (tanpa login)
+ * 
+ * TEMPORARY DISABLED
  */
-@Controller
-@RequestMapping("/demo-error")
+//@Controller
+//@RequestMapping("/demo-error")
 public class DemoErrorController {
 
     /**
