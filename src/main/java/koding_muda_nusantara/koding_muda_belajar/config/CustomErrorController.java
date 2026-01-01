@@ -2,15 +2,16 @@ package koding_muda_nusantara.koding_muda_belajar.config;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.boot.webmvc.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Custom Error Controller untuk menangani error pages
- * Spring Boot akan otomatis route error ke /error endpoint ini
+ * Mengimplementasikan ErrorController agar menggantikan BasicErrorController bawaan Spring Boot
  */
 @Controller
-public class CustomErrorController {
+public class CustomErrorController implements ErrorController {
 
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request) {
